@@ -8,6 +8,9 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.boolean :email_confirmed
 
       t.timestamps
+
+      t.index :email, unique: true
+      t.index :username, unique: true
     end
   end
 end

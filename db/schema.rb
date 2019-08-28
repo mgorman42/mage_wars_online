@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_28_171936) do
+ActiveRecord::Schema.define(version: 2019_08_28_183651) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "content_packs", force: :cascade do |t|
+    t.string "name"
+    t.decimal "price", precision: 5, scale: 2
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["name"], name: "index_content_packs_on_name", unique: true
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email"
@@ -23,6 +31,8 @@ ActiveRecord::Schema.define(version: 2019_08_28_171936) do
     t.boolean "email_confirmed"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
 end
