@@ -10,12 +10,5 @@
 * bundle install --path=vendor
 * bundle exec rake db:create db:migrate
 
-###
-
-Things still to cover:
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
+### Running the Test Suite
+* bundle exec guard --clear
