@@ -4,8 +4,7 @@ RSpec.describe User, type: :model do
   describe 'associations' do
     it { should have_many(:purchases) }
     it { should have_many(:content_packs).through(:purchases) }
-    it { should have_many(:decks) }
-    it { should have_many(:games).through(:decks) }
+    it { should have_many(:mages) }
   end
 
   describe 'validations' do
