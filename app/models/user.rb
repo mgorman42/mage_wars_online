@@ -3,6 +3,7 @@ class User < ApplicationRecord
 
   has_many :purchases
   has_many :content_packs, through: :purchases
+  has_many :mages
 
   validates_presence_of :username, :email
   validates_uniqueness_of :username
