@@ -2,7 +2,7 @@ class Mage < ApplicationRecord
   belongs_to :user
 
   validates :type, inclusion: {
-    in: %w{Beastmaster},
+    in: %w{Beastmaster Priestess Warlock Wizard},
     message: "Select a Class for your Mage"
   }
 
