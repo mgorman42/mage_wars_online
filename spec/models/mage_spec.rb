@@ -2,9 +2,9 @@ require 'rails_helper'
 Dir["#{Rails.root}/app/models/*.rb"].each {|file| require file }
 
 RSpec.describe Mage, type: :model do
-  before { @mage = build("mage") }
   describe 'associations' do
     it { should belong_to(:user) }
+    it { should have_and_belong_to_many(:spells) }
   end
 
   describe 'validations' do
@@ -15,17 +15,19 @@ RSpec.describe Mage, type: :model do
     it { should validate_presence_of(:description) }
   end
 
-  subject { build("mage") }
-  it "should have base_life attribute" do
-    expect(subject.respond_to?("base_life")).to be_truthy
-    expect(subject.respond_to?("base_life=")).to be_truthy
-  end
-  it "should have base_channel attribute" do
-    expect(subject.respond_to?("base_channel")).to be_truthy
-    expect(subject.respond_to?("base_channel=")).to be_truthy
-  end
-  it "should have base_attack attribute" do
-    expect(subject.respond_to?("base_attack")).to be_truthy
-    expect(subject.respond_to?("base_attack=")).to be_truthy
+  describe 'attributes' do
+    subject { build("mage") }
+    it "should have base_life attribute" do
+      expect(subject.respond_to?("base_life")).to be_truthy
+      expect(subject.respond_to?("base_life=")).to be_truthy
+    end
+    it "should have base_channel attribute" do
+      expect(subject.respond_to?("base_channel")).to be_truthy
+      expect(subject.respond_to?("base_channel=")).to be_truthy
+    end
+    it "should have base_attack attribute" do
+      expect(subject.respond_to?("base_attack")).to be_truthy
+      expect(subject.respond_to?("base_attack=")).to be_truthy
+    end
   end
 end

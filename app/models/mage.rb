@@ -1,5 +1,6 @@
 class Mage < ApplicationRecord
   belongs_to :user
+  has_and_belongs_to_many :spells
 
   validates :type, inclusion: {
     in: %w{Beastmaster Priestess Warlock Wizard},

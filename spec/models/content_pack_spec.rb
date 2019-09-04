@@ -4,6 +4,7 @@ RSpec.describe ContentPack, type: :model do
   describe 'associations' do
     it { should have_many(:purchases) }
     it { should have_many(:users).through(:purchases) }
+    it { should have_many(:spells) }
   end
 
   describe 'validations' do
